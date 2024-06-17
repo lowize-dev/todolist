@@ -1,0 +1,437 @@
+/* RESET DOM DEFAULT STYLING */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif, system-ui;
+}
+
+:root {    
+    --blue: hsl(211, 100%, 50%);
+    --light-blue: hsla(211, 100%, 50%, 0.3);
+    --green: hsl(120, 100%, 50%, 0.5);
+    --red: hsl(0, 100%, 50%, 0.5);
+
+    --black: hsl(0, 0%, 15%);
+    --grey: hsl(0, 0%, 90%);
+    --dgrey: hsl(0, 0%, 45%);
+
+    --transform: transform 100ms ease;
+    --border-radius: 4px;
+    --padding-side: 15px;
+    --font-weight: 800;
+
+    --shadow:   0 2px 20px -10px rgba(0, 0, 0, 0.25),
+                0 6px 20px -10px rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    width: 8px;
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar:corner-present ~ .container-data {
+    padding-left: 10px;
+}
+    
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: var(--blue);
+    border-radius: var(--border-radius);
+}
+
+html { font-size: 16px; /* FONT SIZE ROOT 1rem = 16px */ }
+
+ol, ul, li, span { list-style: none; }
+
+h1, h2, h3, h4, h5, h6,
+header, span, a, .footer-field .copyright,
+.modal p
+{
+    text-decoration: none;
+    pointer-events: none;
+    user-select: none;
+}
+
+body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100dvw;
+    height: 100dvh;    
+    margin: 0 auto;
+
+    background-color: var(--blue);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;    
+    gap: 30px;
+
+    width: min(530px, 90dvw);
+    min-height: 200px;
+    padding: 0 0 15px;
+
+    border-radius: 6px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    background-color: #fff;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 65px;
+    padding-inline: 15px;            
+
+    box-shadow: var(--shadow);
+}
+
+/* FLEBOX */
+.todo-count-container,
+.input-field,
+.list-items li,
+.footer-field,
+.modal .modal-button,
+.modal .modal-text,
+.modal .modal-title
+{
+    display: flex;
+    align-items: center;
+}
+
+.todo-count-container {
+    gap: 5px;
+    padding: 5px 5px 5px 10px;
+
+    border-radius: var(--border-radius);
+    background-color: var(--light-blue);
+}
+
+.todo-count-container p {    
+    font-weight: var(--font-weight);
+    color: var(--black);
+}
+
+.todo-count-container .todo-count {
+    padding: 5px 10px;
+
+    color: #fff;
+    font-weight: var(--font-weight);
+
+    border-radius: calc(var(--border-radius) - 1px);
+    background-color: var(--black);
+}
+
+header > h1 {    
+    color: var(--black);
+    font-size: 1.5rem;    
+}
+
+
+.input-field {    
+    gap: 15px;    
+    justify-content: space-between;
+    padding-inline: 15px;   
+    width: 100%;    
+}
+
+/* RESET NO BORDER */
+.input-field input[type="text"],
+.input-field > button,
+li div button,
+.footer-field .delete-all-button,
+.modal-button button
+{
+    border: none;
+    outline: none;
+}
+
+.input-field input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+
+    color: var(--black);
+    font-size: 1.1rem;
+
+    border-radius: var(--border-radius);
+    background-color: var(--grey);
+}
+
+.input-field input[type="text"]:focus {
+    outline: 3px solid var(--blue);
+}
+
+.input-field > button {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight);
+    color: #fff;
+    cursor: pointer;
+
+    padding: 9px 15px;    
+
+    border-radius: var(--border-radius);
+    background-color: var(--blue);
+    transition: var(--transform);
+}
+
+#edit-button {
+    display: none;
+}
+
+.container-data-field {    
+    max-height: 200px;
+    margin-inline: var(--padding-side);
+    padding-inline: 10px;
+
+    overflow-y: auto;    
+    border-radius: var(--border-radius);    
+}
+
+.list-items {                
+    display: flex;
+    flex-direction: column;
+    gap: 15px;    
+}
+
+.list-items li {
+    width: 100%;
+    min-height: 55px;
+    padding: 10px;
+    gap: 15px;
+
+    border-radius: var(--border-radius);
+    background-color: var(--grey);
+       
+}
+
+li .label-text {        
+    word-wrap: break-word;
+    flex: 1;
+    font-size: 1rem;
+}
+
+li input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+}
+
+li input[type="checkbox"]:checked + .label-text {
+    text-decoration: line-through;
+    color: var(--dgrey);
+}
+
+li div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+li div button {
+    width: 30px;
+    height: 30px;
+
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    border-radius: 2px;
+    transition: var(--transform);
+}
+
+li div button:active,
+.input-field button:active,
+.footer-field .delete-all-button:active,
+.modal .modal-button button:active
+{
+    transform: scale(0.9);
+}
+
+li div #edit-todo {
+    background-color: var(--green);
+}
+
+li div #delete-todo {
+    background-color: var(--red);
+}
+
+.footer-field {    
+    padding-inline: var(--padding-side);
+    justify-content: space-between;
+}
+
+.footer-field p {
+    color: var(--dgrey);
+    font-size: 0.96rem;
+}
+
+.footer-field .delete-all-button {    
+    color: var(--dgrey);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight);
+    cursor: pointer;
+    padding: 9px 15px;
+
+    border-radius: var(--border-radius);
+    background-color: var(--grey);
+    transition: var(--transform);
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 350px;
+    height: 200px;
+    padding: 10px;    
+
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    background-color: var(--grey);
+}
+
+.modal .modal-title {    
+    justify-content: center;
+
+    gap: 10px;
+    margin: 2px;    
+    height: 18%;
+    padding: 5px;
+
+    border-radius: calc(var(--border-radius) - 1px);
+    background-color: var(--red);
+}
+
+.modal .modal-text {    
+    height: 40%;
+    margin-block: 15px;
+}
+
+.modal-text p {
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.modal .modal-button {    
+    justify-content: center;    
+}
+
+.modal-button button {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    
+    flex: 0.3;
+    padding: 10px 15px;
+
+    cursor: pointer;
+    background-color: var(--blue);
+    border-radius: calc(var(--border-radius) - 1px);
+    transition: var(--transform);
+}
+
+
+.modal-title p {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.modal img {
+    width: 25px;
+}
+
+@media only screen and (max-width: 520px) {
+    .container {
+        width: min(350px, 90dvw);        
+    }    
+    header {
+        height: 55px;
+    }
+    header > h1 {
+        font-size: 1.25rem;
+    }
+    .todo-count-container  {
+        padding: 4px 4px 4px 8px;
+    }
+    .todo-count {
+        font-size: 0.85rem;
+        padding: 3px 7px;
+    }
+    header > div p {
+        font-size: 0.8rem;
+    }
+    .input-field input[type="text"] {        
+        padding: 8px 10px;
+        font-size: 0.9rem;        
+    }
+    .input-field button {
+        font-size: 0.9rem;
+        padding: 7px 15px;
+    }
+    .footer-field .copyright {
+        font-size: 0.8rem;
+    }
+    .container-data-field {
+        padding-inline: 7px;
+    }
+    li .label-text {
+        font-size: 0.9rem;
+    }
+    .list-items li {        
+        min-height: 40px;
+        border-radius: 4px;        
+        gap: 15px;
+        padding: 5px 10px;
+    }
+    li input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+    }
+    li div {        
+        gap: 8px;        
+    }
+    li div button {
+        width: 25px;
+        height: 25px;            
+        font-size: 1rem;
+    }
+    .footer-field .delete-all-button {
+        font-size: 0.9rem;
+        padding: 7px 15px;
+    }
+    .modal {
+        width: min(250px, 65dvw);
+        height: 180px;
+    }
+    .modal-text p {
+        font-size: 0.95rem;
+    }
+    .modal-title p {
+        font-size: 1.2rem;
+    }    
+    .modal-button button {
+        padding: 8px 15px;
+        font-size: 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 255px) {
+    .list-items li {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- WEBSITE DESCRIPTION -->
+    <title>Todo List App</title>
+    <meta name="author" content="lowize.dev@gmail.com">
+    <meta name="keywords" content="To-do List App, Todo App, Website, Web App">
+    <meta name="description" content="Simple To-Do List Website that uses browser's LocalStorage as a Database">
+    
+    <!-- WEBSITE COMPATIBILITY -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    
+    <!-- WEBSITE OPEN GRAPH (OG) METADATA -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Todo List App" />
+    <meta property="og:description" content="Simple To-Do List Website that uses browser's LocalStorage as a Database" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="./img/notepad.png" />
+
+    <link rel="icon" type="image/x-icon" href="./img/notepad.png">
+    <link rel="stylesheet" href="./css/style.css">        
+</head>
+<body>
+    <main id="root" class="container">
+        <section class="modal" id="modal">
+            <div class="modal-title">
+                <p>UH&ndash; OH??</p>
+                <img src="./img/thinking.png">
+            </div>
+            <div class="modal-text">
+                <p>You can not add a todo that is up to 40 letters with no spaces.</p>
+            </div>
+            <div class="modal-button">
+                <button id="close">CLOSE</button>
+            </div>
+        </section>
+        <header>
+            <h1 id="date-text"></h1>
+            <div class="todo-count-container">
+                <p>TODOS</p>
+                <div class="todo-count" id="count-data">00</div>
+            </div>
+        </header>
+
+        <section class="input-field">
+            <input type="text" id="input-text" placeholder="Your todo here" autocomplete="off">
+            <button type="button" id="add-button">ADD</button>
+            <button type="button" id="edit-button">EDIT</button>            
+        </section>
+
+        <section class="container-data-field">
+            <ul class="list-items" id="list-items"></ul>
+        </section>
+        
+        <footer class="footer-field">
+            <p class="copyright">&copy; 2024 Lowize. All rights reserved.</p>
+            <button type="button" class="delete-all-button" id="delete-all-button">DEL</button>          
+        </footer>
+    </main>
+    <script style="display: none;" src="./js/script.js"></script>
+    
+</body>
+</html>
